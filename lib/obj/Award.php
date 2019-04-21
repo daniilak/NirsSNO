@@ -1,17 +1,16 @@
 <?php
 
 /**
- * Класс типов мероприятий
+ * Справочник типов наград
 
  * Структура в БД:
  * 1 ID Индекс int(11)
- * 2 events_nirs_type varchar(255)
+ * 2 award varchar(255)
  */
-class EventType
+class Award
 {
     private $ID;
-    private $type;
-
+    private $award;
 
     /**
      * Get the value of ID
@@ -34,35 +33,35 @@ class EventType
     }
 
     /**
-     * Get the value of type
+     * Get the value of award
      */
-    public function getType()
+    public function getAward()
     {
-        return $this->type;
+        return $this->award;
     }
 
     /**
-     * Set the value of type
+     * Set the value of award
      *
      * @return  self
      */
-    public function setType($type)
+    public function setAward($award)
     {
-        $this->type = $type;
+        $this->award = $award;
 
         return $this;
     }
 
     /**
-     * Update the value of type
+     * Update the value of award
      *
      * @return  self
      */
-    public function updateType()
+    public function updateAward()
     {
         DataBase::SQL(
-            "UPDATE `events_nirs_types` SET `events_nirs_type` = ? WHERE `ID` = ?",
-            [$this->type, $this->ID]
+            "UPDATE `award_list` SET `award` = ? WHERE `ID` = ?",
+            [$this->award, $this->ID]
         );
 
         return $this;

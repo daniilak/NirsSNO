@@ -1,7 +1,6 @@
 <?php
 class ExceptionEngine
 {
-
     public function __construct()
     {
         set_error_handler([$this, 'ErrorHandler']);
@@ -24,7 +23,7 @@ class ExceptionEngine
         ");
 
         $this->Logger("Ошибка в файле {$errfile} на строке {$errline}: {$errstr}");
-        
+
         $template->templateCompile();
         $template->templateDisplay();
 

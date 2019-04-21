@@ -11,7 +11,7 @@ class TemplateEngine
             trigger_error("Не могу загрузить шаблон {$templateName}");
         }
     }
-    
+
     public function templateLoadInString($templateName, $vars)
     {
         if (!is_file('tpl/' . $templateName) || !$templateBuffer = file_get_contents('tpl/' . $templateName)) {
@@ -54,5 +54,4 @@ class TemplateEngine
         echo $this->templateBuffer;
         exit();
     }
-
 }

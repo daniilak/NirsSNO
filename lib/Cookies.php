@@ -1,6 +1,6 @@
 <?php
-class Cookies {
-
+class Cookies
+{
     static function deleteCookies()
     {
         setcookie("token", "", time() - 3600);

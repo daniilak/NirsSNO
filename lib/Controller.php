@@ -11,7 +11,6 @@ class Controller
         $this->parseConfig();
         $this->parseLogout();
 
-
         $this->controller = 'main';
 
         if (empty($params['route'])) {
@@ -20,12 +19,10 @@ class Controller
 
         $controller = explode('/', $params['route']);
         $this->controller = $controller[0];
-        
-        if (isset($this->controllers[$this->controller])) 
-        {
+
+        if (isset($this->controllers[$this->controller])) {
             $this->controllerData = $this->controllers[$this->controller];
-        } else 
-        {
+        } else {
             $this->controller = 404;
         }
         $this->loadModel();
@@ -33,8 +30,7 @@ class Controller
 
     private function parseLogout()
     {
-        if (isset($_GET['logout'])) 
-        {
+        if (isset($_GET['logout'])) {
             Cookies::deleteCookies();
             Cookies::redirectPage();
         }
@@ -50,35 +46,28 @@ class Controller
 
     private function loadModel()
     {
-    	require_once(__DIR__ . '/Ref.php');
         if ($this->controller == "main") {
-        	
+
             //Cookies::redirectPage('main');
         }
-		
-        require_once(__DIR__ . '/TemplateEngine.php');
 
         if ($this->controller == 404) {
             $template = new TemplateEngine("{$this->controller}.tpl");
             require_once("models/{$this->controller}.php");
         }
-        
-
-        require_once(__DIR__ . '/DataBase.php');
 
         if (!$this->controllers[$this->controller]->main[0]) {
-        	Cookies::emptyCookie();
+            Cookies::emptyCookie();
             $template = new TemplateEngine("template.tpl");
             $template->templateLoadSub("{$this->controller}.tpl", "content");
         } else {
             $template = new TemplateEngine("{$this->controller}.tpl");
         }
-        
-        
+
+
         require_once("models/{$this->controller}.php");
-        
-        
     }
+
     public function connectMenu($idRole = 0)
     {
         $blockMenu = "";
@@ -94,12 +83,12 @@ class Controller
                 }
                 $section['url'] = $key;
                 $blockMenu .= $this->templateLoadInString('menu/block_menu.tpl', $section);
-
             }
         }
         $this->templateSetVar('block_menu', $blockMenu);
         $this->templateSetVar('route', $models);
     }
+
     private function loadModel1($controller)
     {
         $user = new User();

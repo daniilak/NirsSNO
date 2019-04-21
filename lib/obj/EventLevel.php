@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Класс уровней мероприятий
+ * Справочник уровней мероприятий
 
  * Структура в БД:
  * 1 ID Индекс int(11)
@@ -14,7 +14,7 @@ class EventLevel
 
     /**
      * Get the value of ID
-     */ 
+     */
     public function getID()
     {
         return $this->ID;
@@ -24,7 +24,7 @@ class EventLevel
      * Set the value of ID
      *
      * @return  self
-     */ 
+     */
     public function setID($ID)
     {
         $this->ID = $ID;
@@ -34,7 +34,7 @@ class EventLevel
 
     /**
      * Get the value of level
-     */ 
+     */
     public function getLevel()
     {
         return $this->level;
@@ -44,14 +44,13 @@ class EventLevel
      * Set the value of level
      *
      * @return  self
-     */ 
+     */
     public function setLevel($level)
     {
         $this->level = $level;
 
         return $this;
     }
-
 
     /**
      * Update the value of level
