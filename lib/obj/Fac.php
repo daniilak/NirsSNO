@@ -10,7 +10,6 @@ class Fac
     private $fullName;
     private $decan;
     private $photoURL;
-    private $pass;
 
     /**
      * Get the value of ID
@@ -188,26 +187,6 @@ class Fac
     public function setPhotoURL($photoURL)
     {
         $this->photoURL = $photoURL;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of pass
-     */
-    public function getPass()
-    {
-        return $this->pass;
-    }
-
-    /**
-     * Set the value of pass
-     *
-     * @return  self
-     */
-    public function setPass($pass)
-    {
-        $this->pass = $pass;
 
         return $this;
     }

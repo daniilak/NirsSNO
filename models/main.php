@@ -1,7 +1,6 @@
 <?php
 $msg = "";
 
-var_dump(API::getEvents(2018));
 
 if (isset($_POST['g-recaptcha-response']) && Ref::verifyCaptcha($_POST['g-recaptcha-response'])) {
 	$msg = "Произошла ошибка при авторизации <br> Попробуйте еще раз.";

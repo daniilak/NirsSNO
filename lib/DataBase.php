@@ -3,6 +3,7 @@ class DataBase
 {
     private static $db = null;
     private static $dbStream;
+
     public function __construct()
     {
         try {
@@ -32,33 +33,24 @@ class DataBase
         return static::$dbStream;
     }
 
-    static function SQL($sql, $array = FALSE)
+    static function SQL($sql, $className, $array = FALSE)
     {
         $stmt = DataBase::query()->prepare($sql);
 
         if (!empty($array) && is_array($array)) {
             foreach ($array as $key => $a) {
-                $stmt->bindValue($key + 1,  $a, is_integer($a) ? PDO::PARAM_INT : PDO::PARAM_STR);
+                $stmt->bindValue(
+                    $key + 1,
+                    $a,
+                    is_integer($a) ? PDO::PARAM_INT : PDO::PARAM_STR
+                );
             }
         }
 
         $stmt->execute();
 
-        return $stmt;
-    }
-    
-    static function selectSQL($sql, $className, $array = FALSE)
-    {
-        $stmt = DataBase::query()->prepare($sql);
-
-        if (!empty($array) && is_array($array)) {
-            foreach ($array as $key => $a) {
-                $stmt->bindValue($key + 1,  $a, is_integer($a) ? PDO::PARAM_INT : PDO::PARAM_STR);
-            }
-        }
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_CLASS, $className);
+        return (mb_strlen($className) > 0)
+            ? $stmt->fetchAll(PDO::FETCH_CLASS, $className)
+            : $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

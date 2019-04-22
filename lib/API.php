@@ -5,9 +5,9 @@
  */
 class API
 {
-    static function getFacs()
+    static function getFacs($isObject = TRUE)
     {
-        return DataBase::selectSQL(
+        return DataBase::SQL(
             "SELECT 
              `ID`,
              `id_lk_chuvsu` AS `idLkChuvsu`,
@@ -19,54 +19,55 @@ class API
              `decan`,
              `photo_url` AS `photoURL`
              FROM `facs`",
-            'Fac'
+            ($isObject) ? 'Fac' : ''
         );
     }
 
-    static function getAwards()
+    static function getAwards($isObject = TRUE)
     {
-        return DataBase::selectSQL(
+        return DataBase::SQL(
             "SELECT `ID`,`award` 
              FROM `awards`",
-            'Award'
+            ($isObject) ? 'Award' : ''
         );
     }
 
-    static function getChairs()
+    static function getChairs($isObject = TRUE)
     {
-        return DataBase::selectSQL(
+        return DataBase::SQL(
             "SELECT `ID`, `id_fac` AS `idFac`, `name` 
              FROM `chairs`",
-            'Chair'
+            ($isObject) ? 'Chair' : ''
         );
     }
 
-    static function getEventTypes()
+    static function getEventTypes($isObject = TRUE)
     {
-        return DataBase::selectSQL(
+        return DataBase::SQL(
             "SELECT `ID`, `events_nirs_type` AS `type` 
              FROM `events_nirs_types`",
-            'EventType'
+            ($isObject) ? 'EventType' : ''
         );
     }
 
-    static function getEventLevels()
+    static function getEventLevels($isObject = TRUE)
     {
-        return DataBase::selectSQL(
+        return DataBase::SQL(
             "SELECT `ID`, `events_nirs_level` AS `level` 
              FROM `events_nirs_levels`",
-            'EventLevel'
+            ($isObject) ? 'EventLevel' : ''
         );
     }
 
-    static function getEvents($year)
+    static function getEvents($year, $isObject = TRUE)
     {
-        return DataBase::selectSQL(
+        return DataBase::SQL(
             "SELECT 
                 `ID`,
                 `id_type_event` AS `idType`,
                 `id_level_event` AS `idLevel`,
                 `year`,
+                `name`,
                 `date_start` AS `dateStart`,
                 `date_end` AS `dateEnd`,
                 `location`,
@@ -74,8 +75,7 @@ class API
                 `is_order` AS `isOrder`
              FROM `events_nirs`
              WHERE `year` = ?",
-            'Event',
-            [intval($year)]
+            ($isObject) ? 'Event' : ''[intval($year)]
         );
     }
 }

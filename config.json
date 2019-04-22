@@ -9,10 +9,10 @@
                 true
             ],
             "data": {
-                "title" : "АИС НИРС",
-                "js" : "",
-                "css" : "",
-                "status" : 0
+                "title": "АИС НИРС",
+                "js": "",
+                "css": "",
+                "status": 0
             }
         },
         "404": {
@@ -23,10 +23,24 @@
                 true
             ],
             "data": {
-                "title" : "Не найдено",
-                "js" : "",
-                "css" : "",
-                "status" : 0
+                "title": "Не найдено",
+                "js": "",
+                "css": "",
+                "status": 0
+            }
+        },
+        "api": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                true
+            ],
+            "data": {
+                "title": "API",
+                "js": "",
+                "css": "",
+                "status": 0
             }
         },
         "auth": {
@@ -37,10 +51,10 @@
                 true
             ],
             "data": {
-                "title" : "Название страницы",
-                "js" : "",
-                "css" : "",
-                "status" : 0
+                "title": "Название страницы",
+                "js": "",
+                "css": "",
+                "status": 0
             }
         },
         "publicpage": {
@@ -51,10 +65,10 @@
                 true
             ],
             "data": {
-                "title" : "Название страницы",
-                "js" : "",
-                "css" : "",
-                "status" : 0
+                "title": "Название страницы",
+                "js": "",
+                "css": "",
+                "status": 0
             }
         },
         "starter": {
@@ -65,10 +79,10 @@
                 false
             ],
             "data": {
-                "title" : "Главная",
-                "js" : "'<script src='../dist/js/pages/starter.js?v={version}'></script>",
-                "css" : "",
-                "status" : 0
+                "title": "Главная",
+                "js": "'<script src='../dist/js/pages/starter.js?v={version}'></script>",
+                "css": "",
+                "status": 0
             }
         },
         "privatepage1": {
@@ -79,10 +93,10 @@
                 true
             ],
             "data": {
-                "title" : "Приватная страница #1",
-                "js" : "",
-                "css" : "",
-                "status" : 1
+                "title": "Приватная страница #1",
+                "js": "",
+                "css": "",
+                "status": 1
             }
         },
         "privatepage2": {
@@ -93,10 +107,10 @@
                 false
             ],
             "data": {
-                "title" : "Приватная страница #2",
-                "js" : "",
-                "css" : "",
-                "status" : 0
+                "title": "Приватная страница #2",
+                "js": "",
+                "css": "",
+                "status": 0
             }
         }
     }
