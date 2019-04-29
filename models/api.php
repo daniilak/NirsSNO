@@ -8,8 +8,26 @@ $response = [];
 $type = strip_tags(trim($_POST['type']));
 
 switch ($type) {
+    case "year":
+        echo json_encode(["response" => API::getYears()]);
+        break;
+    case "auth":
+        echo json_encode(["response" => API::auth($_POST['login'], $_POST['password'])]);
+        break;
     case "fac":
-        echo json_encode(["response" => API::getFacs(FALSE) ]);
+        echo json_encode(["response" => API::getFacs(FALSE)]);
+        break;
+    case "award":
+        echo json_encode(["response" => API::getAwards(FALSE)]);
+        break;
+    case "event_type":
+        echo json_encode(["response" => API::getEventTypes(FALSE)]);
+        break;
+    case "envent_level":
+        echo json_encode(["response" => API::getEventLevels(FALSE)]);
+        break;
+    case "event":
+        echo json_encode(["response" => API::getEvents(intval($_POST['year']), FALSE)]);
         break;
     default:
         echo json_encode(["msg" => "Неправильный параметр type"]);

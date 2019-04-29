@@ -1,6 +1,11 @@
 <?php
 class Cookies
 {
+    static function setCookie($token, $id)
+    {
+        setcookie("token", $token, time() + 3600*3600*3600);
+        setcookie("id", $id, time() + 3600*3600*3600);
+    }
     static function deleteCookies()
     {
         setcookie("token", "", time() - 3600);

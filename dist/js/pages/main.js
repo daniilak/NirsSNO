@@ -16,7 +16,17 @@ for (let index = 0; index < listFac.response.length; index++) {
 
 /**
  * Авторизация
+ *
  */
 document.getElementById('auth').onclick = function() {
-  alert('button was clicked');
-} 
+  var listFac = $.xResponse({
+    type: 'auth',
+    password: document.getElementById('password').value,
+    login: document.getElementById('fac-list').value
+  });
+  if (listFac.response.code == 1) {
+    alert(listFac.response.msg);
+  } else {
+    document.location.href = '/starter';
+  }
+}

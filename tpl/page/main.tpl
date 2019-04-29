@@ -40,12 +40,14 @@
                             form-control-feedback"></span>
                         <span class="help-block"></span>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="{recaptcha_sitekey}"></div>
+                    <div class="g-recaptcha" id="rcaptcha"
+                        data-sitekey="{recaptcha_sitekey}"></div>
                     <div class="row">
                         <div class="col-xs-8">
                         </div>
                         <div class="col-xs-4">
-                            <button type="button" id="auth" class="btn btn-primary
+                            <button type="button" id="auth" class="btn
+                                btn-primary
                                 btn-block btn-flat">Войти</button>
                         </div>
                     </form>

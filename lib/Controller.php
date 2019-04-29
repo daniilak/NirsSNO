@@ -43,12 +43,10 @@ class Controller
         $this->siteName = $data->controllers;
     }
 
-
     private function loadModel()
     {
         if ($this->controller == "main") {
-
-            //Cookies::redirectPage('main');
+            Cookies::redirectPage('starter');
         }
 
         if ($this->controller == 404) {
@@ -64,7 +62,19 @@ class Controller
             $template = new TemplateEngine("{$this->controller}.tpl");
         }
 
-
+        $template->templateSetVar(
+            "title",
+            $this->controllers[$this->controller]->data->title
+        );
+        $template->templateSetVar(
+            "js",
+            $this->controllers[$this->controller]->data->js
+        );
+        $template->templateSetVar(
+            "css",
+            $this->controllers[$this->controller]->data->css
+        );
+        
         require_once("models/{$this->controller}.php");
     }
 
@@ -79,7 +89,6 @@ class Controller
                     $section['active'] = "active";
                     $this->templateSetVar('css', $section['css']);
                     $this->templateSetVar('scripts', $section['scripts']);
-                    $this->templateSetVar('title', $section['title']);
                 }
                 $section['url'] = $key;
                 $blockMenu .= $this->templateLoadInString('menu/block_menu.tpl', $section);

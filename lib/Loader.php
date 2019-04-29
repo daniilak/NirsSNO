@@ -15,6 +15,7 @@ require_once(__DIR__ . '/obj/EventType.php');
 require_once(__DIR__ . '/obj/Event.php');
 require_once(__DIR__ . '/obj/Award.php');
 require_once(__DIR__ . '/obj/Chair.php');
+require_once(__DIR__ . '/obj/News.php');
 require_once(__DIR__ . '/obj/Fac.php');
 require_once(__DIR__ . '/Cookies.php');
 require_once(__DIR__ . '/Controller.php');

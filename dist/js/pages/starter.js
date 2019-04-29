@@ -1,21 +1,15 @@
-$(document).ready(function () {
-	$(".btn-flat").click(function() {
-		$.ajax({
-			url:"/starter", 
-			data:{code: $("#description").val()}, 
-			type:'POST', 
-			dataType: 'json',
-			success:function(data){
-				if (data.code == 1)
-				{
-					alert("Вы получили доступ");
-					location.reload();
-				}
-				if (data.code == 2)
-				{
-					alert("Что-то пошло не так");
-				}
-			}
-		});
-	});
-});
+/**
+ * Загрузка списка годов
+ */
+var years = $.xResponse({type: 'year', 'get_list': true});
+select = document.getElementById('year-list');
+
+for (let index = 0; index < years.response.length; index++) {
+  const element = years.response[index];
+
+  var opt = document.createElement('option');
+  opt.value = element.ID;
+  opt.innerHTML = element.name;
+
+  select.appendChild(opt);
+}

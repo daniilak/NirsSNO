@@ -5,6 +5,20 @@
  */
 class API
 {
+    static function auth($login, $pass)
+    {
+        $tmp = DataBase::SQL(
+            "SELECT  `pass_hash`, `ID`, `GUID` FROM `users` WHERE `id_vk` = ?",
+            '',
+            [$login]
+        );
+        if (password_verify(trim($pass), $tmp[0]['pass_hash'])) {
+            Cookies::setCookie($tmp[0]['GUID'], $tmp[0]['ID']);
+            return ["code" => 0];
+        } else {
+            return ["code" => 1, "msg" => "Неправильный логин или пароль!"];
+        }
+    }
     static function getFacs($isObject = TRUE)
     {
         return DataBase::SQL(
@@ -75,7 +89,28 @@ class API
                 `is_order` AS `isOrder`
              FROM `events_nirs`
              WHERE `year` = ?",
-            ($isObject) ? 'Event' : ''[intval($year)]
+            ($isObject) ? 'Event' : '',
+            [intval($year)]
+        );
+    }
+
+    static function getYears()
+    {
+        $tmp = [];
+        for ($i = 2018; $i <= 2025; $i++) {
+            $tmp[] = $i;
+        }
+        return ["code" => 0, "years" => $tmp];
+    }
+
+    static function getNews($isObject = TRUE)
+    {
+        return DataBase::SQL(
+            "SELECT 
+                `ID`,
+                `text`
+             FROM `news`",
+            ($isObject) ? 'News' : ''
         );
     }
 }
