@@ -10,7 +10,7 @@ $.extend({
   xResponse: function(data) {
     var theResponse = null;
     $.ajax({
-      url: 'api',
+      url: '../api',
       type: 'POST',
       data: data,
       dataType: 'json',
@@ -72,22 +72,36 @@ function news() {
 };
 
 /**
- * Загрузка списка новостей
+ * Загрузка списка уровний мероприятия
  */
-function news() {
-  var response = $.xResponse({type: 'news', 'get_list': true});
+function event_levels() {
+  var response = $.xResponse({type: 'event_level', 'get_list': true});
 
-  var newsList = document.getElementById('news-list');
-    for (var element of response) {
-      var div = document.createElement('div');
-      div.className = 'callout';
-      div.innerHTML = element.text;
+  var select = document.getElementById('event-levels-list');
+  for (var element of response) {
+    var opt = document.createElement('option');
+    opt.value = element.ID;
+    opt.innerHTML = element.level;
 
-      newsList.appendChild(div);
+    select.appendChild(opt);
   }
 };
 
+/**
+ * Загрузка списка типов мероприятий
+ */
+function event_types() {
+  var response = $.xResponse({type: 'event_type', 'get_list': true});
 
+  var select = document.getElementById('event-types-list');
+  for (var element of response) {
+    var opt = document.createElement('option');
+    opt.value = element.ID;
+    opt.innerHTML = element.type;
+
+    select.appendChild(opt);
+  }
+};
 function addDivEvent(element) {
   var div = document.createElement('div');
 

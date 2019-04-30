@@ -3,6 +3,7 @@ class Controller
 {
     private $controllers;
     private $controller;
+    private $controllerForID;
     private $controllerData;
     private $siteName;
 
@@ -19,6 +20,8 @@ class Controller
 
         $controller = explode('/', $params['route']);
         $this->controller = $controller[0];
+        if (isset($controller[1]))
+            $this->controllerForID = $controller[1];
 
         if (isset($this->controllers[$this->controller])) {
             $this->controllerData = $this->controllers[$this->controller];
@@ -57,7 +60,12 @@ class Controller
         if (!$this->controllers[$this->controller]->main[0]) {
             Cookies::emptyCookie();
             $template = new TemplateEngine("template.tpl");
-            $template->templateLoadSub("{$this->controller}.tpl", "content");
+
+            if (isset($this->controllerData->data->issetID) && mb_strlen($this->controllerForID) > 0) {
+                $template->templateLoadSub("{$this->controller}_ID.tpl", "content");
+            } else {
+                $template->templateLoadSub("{$this->controller}.tpl", "content");
+            }
         } else {
             $template = new TemplateEngine("{$this->controller}.tpl");
         }
@@ -74,7 +82,7 @@ class Controller
             "css",
             $this->controllers[$this->controller]->data->css
         );
-        
+
         require_once("models/{$this->controller}.php");
     }
 

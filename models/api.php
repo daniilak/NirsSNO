@@ -26,7 +26,7 @@ switch ($type) {
     case "event_type":
         echo json_encode(["response" => API::getEventTypes(FALSE)]);
         break;
-    case "envent_level":
+    case "event_level":
         echo json_encode(["response" => API::getEventLevels(FALSE)]);
         break;
     case "event":
