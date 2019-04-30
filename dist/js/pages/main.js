@@ -1,18 +1,4 @@
-/**
- * Загрузка списка факультетов
- */
-var listFac = $.xResponse({type: 'fac', 'get_list': true});
-select = document.getElementById('fac-list');
-
-for (let index = 0; index < listFac.response.length; index++) {
-  const element = listFac.response[index];
-
-  var opt = document.createElement('option');
-  opt.value = element.ID;
-  opt.innerHTML = element.name;
-
-  select.appendChild(opt);
-}
+facs();
 
 /**
  * Авторизация
@@ -24,8 +10,8 @@ document.getElementById('auth').onclick = function() {
     password: document.getElementById('password').value,
     login: document.getElementById('fac-list').value
   });
-  if (listFac.response.code == 1) {
-    alert(listFac.response.msg);
+  if (listFac.code == 1) {
+    alert(listFac.msg);
   } else {
     document.location.href = '/starter';
   }

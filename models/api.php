@@ -8,6 +8,9 @@ $response = [];
 $type = strip_tags(trim($_POST['type']));
 
 switch ($type) {
+    case "news":
+        echo json_encode(["response" => API::getNews(FALSE)]);
+        break;
     case "year":
         echo json_encode(["response" => API::getYears()]);
         break;

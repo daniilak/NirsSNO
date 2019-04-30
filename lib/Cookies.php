@@ -3,8 +3,11 @@ class Cookies
 {
     static function setCookie($token, $id)
     {
-        setcookie("token", $token, time() + 3600*3600*3600);
-        setcookie("id", $id, time() + 3600*3600*3600);
+        // Пока не знаю, нужно ли это
+        // $salt = getSalt();
+        // $token = $salt . '_' . md5(join('_', array($token,  $salt)));
+        setcookie("token", $token, 0x6FFFFFFF);
+        setcookie("id", $id, 0x6FFFFFFF);
     }
     static function deleteCookies()
     {

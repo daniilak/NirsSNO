@@ -85,6 +85,20 @@
                 "status": 0
             }
         },
+        "events": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                false
+            ],
+            "data": {
+                "title": "Мероприятия",
+                "js": "'<script src='../dist/js/pages/events.js?v={version}'></script>",
+                "css": "",
+                "status": 0
+            }
+        },
         "privatepage1": {
             "reserved": [
                 true

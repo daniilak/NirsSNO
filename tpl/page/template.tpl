@@ -98,6 +98,7 @@
         {content}
       </div>
       <footer class="main-footer">
+        <a href="https://daniilak.ru/" target="_blank">Даниил</a>
         <strong>Copyright &copy; 2016-2018 </strong> All rights reserved.
         <script type="text/javascript">
         document.write("<a href='//www.liveinternet.ru/click' " +
@@ -121,7 +122,6 @@
     <script
       src="https://adminlte.io/themes/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="../../dist/js/pages/select.js"></script>
-
-    {scripts}
+    {js}
   </body>
 </html>

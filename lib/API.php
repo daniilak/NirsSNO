@@ -7,6 +7,11 @@ class API
 {
     static function auth($login, $pass)
     {
+        // чуть позже сделаю
+        //
+        // if (isset($_POST['g-recaptcha-response']) && Ref::verifyCaptcha($_POST['g-recaptcha-response'])) {
+        //     return ["code" => 1, "msg" => "Произошла ошибка при авторизации <br> Попробуйте еще раз."];
+        // }
         $tmp = DataBase::SQL(
             "SELECT  `pass_hash`, `ID`, `GUID` FROM `users` WHERE `id_vk` = ?",
             '',
