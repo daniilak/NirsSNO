@@ -65,26 +65,8 @@
             </div>
             <div class="collapse navbar-collapse pull-left"
               id="navbar-collapse">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav" id="block-menu">
                 {block_menu}
-                <li><a href="/starter?logout">Выйти</a></li>
-              </ul>
-            </div>
-            <div class="navbar-custom-menu">
-              <ul class="nav navbar-nav">
-                <li class="dropdown user user-menu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{photo_user}" class="user-image" alt="User Image">
-                    <span class="hidden-xs">{fName} {lName}</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="user-header">
-                      <img src="{photo_user}" class="img-circle" alt="User
-                        Image">
-                      <p>{fName} {lName}</p>
-                    </li>
-                  </ul>
-                </li>
               </ul>
             </div>
           </div>

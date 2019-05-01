@@ -57,20 +57,6 @@
         "status": 0
       }
     },
-    "publicpage": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        true
-      ],
-      "data": {
-        "title": "Название страницы",
-        "js": "",
-        "css": "",
-        "status": 0
-      }
-    },
     "starter": {
       "reserved": [
         true
@@ -82,7 +68,8 @@
         "title": "Главная",
         "js": "'<script src='../dist/js/pages/starter.js?v={version}'></script>",
         "css": "",
-        "status": 0
+        "status": 0,
+        "menu" : 0
       }
     },
     "events": {
@@ -97,7 +84,38 @@
         "title": "Мероприятия",
         "js": "'<script src='../dist/js/pages/events.js?v={version}'></script>",
         "css": "",
-        "status": 0
+        "status": 0,
+        "menu" : 0
+      }
+    },
+    "manual": {
+      "reserved": [
+        true
+      ],
+      "main": [
+        false
+      ],
+      "data": {
+        "title": "Настройка",
+        "js": "'<script src='../dist/js/pages/manual.js?v={version}'></script>",
+        "css": "",
+        "status": 0,
+        "menu" : 0
+      }
+    },
+    "stats": {
+      "reserved": [
+        true
+      ],
+      "main": [
+        false
+      ],
+      "data": {
+        "title": "Отчеты",
+        "js": "'<script src='../dist/js/pages/stats.js?v={version}'></script>",
+        "css": "",
+        "status": 0,
+        "menu" : 0
       }
     },
     "privatepage1": {
@@ -111,7 +129,8 @@
         "title": "Приватная страница #1",
         "js": "",
         "css": "",
-        "status": 1
+        "status": 1,
+        "menu" : 0
       }
     },
     "privatepage2": {
@@ -125,7 +144,8 @@
         "title": "Приватная страница #2",
         "js": "",
         "css": "",
-        "status": 0
+        "status": 0,
+        "menu" : 0
       }
     }
   }

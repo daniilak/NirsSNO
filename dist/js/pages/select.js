@@ -24,6 +24,27 @@ $.extend({
 });
 
 /**
+ * Загрузка меню
+ */
+function setMenu() {
+  var controller = window.location.href.split('/');
+  var response = $.xResponse({type: 'menu', 'get_list': true});
+
+  var select = document.getElementById('block-menu');
+  for (var element of response.controllers) {
+    var opt = document.createElement('li');
+    opt.innerHTML = '<a href="' + element.url + '">' + element.name + '</a>';
+    if (controller[3] == element.url) {
+      opt.className = "active";
+    }
+    select.appendChild(opt);
+  }
+  var opt = document.createElement('li');
+  opt.innerHTML = '<a href="/starter?logout">Выйти</a>';
+  select.appendChild(opt);
+};
+
+/**
  * Загрузка списка годов
  */
 function years() {

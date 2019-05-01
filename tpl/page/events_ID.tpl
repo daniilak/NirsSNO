@@ -1,7 +1,8 @@
 <section class="content">
-    <div class="box box-widget box-default">
+        <div class="box box-widget box-default">
       <div class="box-header with-border">
         <div class="row">
+            Редактирование: {}
         </div>
       </div>
       <div class="box-body">

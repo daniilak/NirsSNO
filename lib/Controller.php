@@ -86,26 +86,6 @@ class Controller
         require_once("models/{$this->controller}.php");
     }
 
-    public function connectMenu($idRole = 0)
-    {
-        $blockMenu = "";
-        $models = $GLOBALS['models'];
-        foreach ($menuSections as $key => $section) {
-            if ($idRole >= $section['status']) {
-
-                if ($models == $key) {
-                    $section['active'] = "active";
-                    $this->templateSetVar('css', $section['css']);
-                    $this->templateSetVar('scripts', $section['scripts']);
-                }
-                $section['url'] = $key;
-                $blockMenu .= $this->templateLoadInString('menu/block_menu.tpl', $section);
-            }
-        }
-        $this->templateSetVar('block_menu', $blockMenu);
-        $this->templateSetVar('route', $models);
-    }
-
     private function loadModel1($controller)
     {
         $user = new User();

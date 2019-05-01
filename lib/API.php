@@ -5,6 +5,22 @@
  */
 class API
 {
+    static function getMenu()
+    {
+        $data = json_decode(file_get_contents(__DIR__ . '/../config.json'));
+        $roleID = 4;
+        $response = ["sitename" => $data->sitename, "controllers" => []];
+        foreach ($data->controllers as $key => $controller) {
+            if (isset($controller->data->menu) && $controller->data->status <= $roleID) {
+                $response["controllers"][] = [
+                    "name" => $controller->data->title,
+                    "url" => $key,
+                ];
+            }
+        }
+        return $response;
+    }
+
     static function auth($login, $pass)
     {
         // чуть позже сделаю
