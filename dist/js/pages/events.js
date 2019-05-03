@@ -1,3 +1,4 @@
+setMenu();
 years();
 events();
 event_levels();

@@ -51,7 +51,8 @@
     <link href="dist/css/bootstrap-ie7.css" rel="stylesheet">
     <![endif]-->
   </head>
-  <body class="hold-transition layout-top-nav skin-green fixed sidebar-collapse">
+  <body class="hold-transition layout-top-nav skin-green fixed
+    sidebar-collapse">
     <div class="wrapper">
       <header class="main-header">
         <nav class="navbar navbar-static-top">
@@ -65,19 +66,19 @@
             </div>
             <div class="collapse navbar-collapse pull-left"
               id="navbar-collapse">
-              <ul class="nav navbar-nav" id="block-menu">
-                {block_menu}
-              </ul>
+              <ul class="nav navbar-nav" id="block-menu"></ul>
             </div>
           </div>
         </nav>
       </header>
 
       <div class="content-wrapper">
-        <section class="content-header">
-          <h1>{title}</h1>
-        </section>
-        {content}
+        <div class="container">
+          <section class="content-header">
+            <h1>{title}</h1>
+          </section>
+          {content}
+        </div>
       </div>
       <footer class="main-footer">
         <a href="https://daniilak.ru/" target="_blank">Даниил</a>
