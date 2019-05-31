@@ -1,152 +1,154 @@
 {
-  "sitename": "АИС НИРС",
-  "controllers": {
-    "main": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        true
-      ],
-      "data": {
-        "title": "АИС НИРС",
-        "js": "",
-        "css": "",
-        "status": 0
-      }
-    },
-    "404": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        true
-      ],
-      "data": {
-        "title": "Не найдено",
-        "js": "",
-        "css": "",
-        "status": 0
-      }
-    },
-    "api": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        true
-      ],
-      "data": {
-        "title": "API",
-        "js": "",
-        "css": "",
-        "status": 0
-      }
-    },
-    "auth": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        true
-      ],
-      "data": {
-        "title": "Название страницы",
-        "js": "",
-        "css": "",
-        "status": 0
-      }
-    },
-    "starter": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        false
-      ],
-      "data": {
-        "title": "Главная",
-        "js": "'<script src='../dist/js/pages/starter.js?v={version}'></script>",
-        "css": "",
-        "status": 0,
-        "menu" : 0
-      }
-    },
-    "events": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        false
-      ],
-      "data": {
-        "issetID" : 1,
-        "title": "Мероприятия",
-        "js": "'<script src='../dist/js/pages/events.js?v={version}'></script>",
-        "css": "",
-        "status": 0,
-        "menu" : 0
-      }
-    },
-    "manual": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        false
-      ],
-      "data": {
-        "title": "Настройка",
-        "js": "'<script src='../dist/js/pages/manual.js?v={version}'></script>",
-        "css": "",
-        "status": 0,
-        "menu" : 0
-      }
-    },
-    "stats": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        false
-      ],
-      "data": {
-        "title": "Отчеты",
-        "js": "'<script src='../dist/js/pages/stats.js?v={version}'></script>",
-        "css": "",
-        "status": 0,
-        "menu" : 0
-      }
-    },
-    "privatepage1": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        true
-      ],
-      "data": {
-        "title": "Приватная страница #1",
-        "js": "",
-        "css": "",
-        "status": 1,
-        "menu" : 0
-      }
-    },
-    "privatepage2": {
-      "reserved": [
-        true
-      ],
-      "main": [
-        false
-      ],
-      "data": {
-        "title": "Приватная страница #2",
-        "js": "",
-        "css": "",
-        "status": 0,
-        "menu" : 0
-      }
+    "sitename": "АИС НИРС",
+    "controllers": {
+        "main": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                true
+            ],
+            "data": {
+                "title": "АИС НИРС",
+                "js": "",
+                "css": "",
+                "status": 0
+            }
+        },
+        "404": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                true
+            ],
+            "data": {
+                "title": "Не найдено",
+                "js": "",
+                "css": "",
+                "status": 0
+            }
+        },
+        "api": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                true
+            ],
+            "data": {
+                "title": "API",
+                "js": "",
+                "css": "",
+                "status": 0
+            }
+        },
+        "auth": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                true
+            ],
+            "data": {
+                "title": "Название страницы",
+                "js": "",
+                "css": "",
+                "status": 0
+            }
+        },
+        "starter": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                false
+            ],
+            "data": {
+                "title": "Главная",
+                "icon": "<span class='glyphicon glyphicon-home' aria-hidden='true'></span>",
+                "js": "'<script src='../dist/js/pages/starter.js?v={version}'></script>",
+                "css": "",
+                "status": 0,
+                "menu": 0
+            }
+        },
+        "events": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                false
+            ],
+            "data": {
+                "issetID": 1,
+                "title": "Мероприятия",
+                "icon": "<span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span>",
+                "js": "'<script src='../dist/js/pages/events.js?v={version}'></script>",
+                "css": "",
+                "status": 0,
+                "menu": 0
+            }
+        },
+        "manual": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                false
+            ],
+            "data": {
+                "title": "Настройка",
+                "js": "'<script src='../dist/js/pages/manual.js?v={version}'></script>",
+                "css": "",
+                "status": 0,
+                "menu": 0
+            }
+        },
+        "stats": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                false
+            ],
+            "data": {
+                "title": "Отчеты",
+                "js": "'<script src='../dist/js/pages/stats.js?v={version}'></script>",
+                "css": "",
+                "status": 0,
+                "menu": 0
+            }
+        },
+        "privatepage1": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                true
+            ],
+            "data": {
+                "title": "Приватная страница #1",
+                "js": "",
+                "css": "",
+                "status": 1,
+                "menu": 0
+            }
+        },
+        "privatepage2": {
+            "reserved": [
+                true
+            ],
+            "main": [
+                false
+            ],
+            "data": {
+                "title": "Приватная страница #2",
+                "js": "",
+                "css": "",
+                "status": 0,
+                "menu": 0
+            }
+        }
     }
-  }
 }

@@ -31,8 +31,10 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
-                        <button type="button" class="btn btn-success add-news"><strong>Добавить новость</strong></button>
                         <div id="list-news"></div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success" id="add-news" ><strong>Добавить новость</strong></button>
+                        </div>
                     </div>
                     <div class="tab-pane" id="tab_2">
                         <b>Kekek</b>

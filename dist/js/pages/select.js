@@ -7,130 +7,131 @@
  * @return {mix}       [ajax response]
  */
 $.extend({
-  xResponse: function(data) {
-    var theResponse = null;
-    $.ajax({
-      url: '../api',
-      type: 'POST',
-      data: data,
-      dataType: 'json',
-      async: false,
-      success: function(respText) {
-        theResponse = respText.response;
-      }
-    });
-    return theResponse;
-  }
+    xResponse: function(data) {
+        var theResponse = null;
+        $.ajax({
+            url: '../api',
+            type: 'POST',
+            data: data,
+            dataType: 'json',
+            async: false,
+            success: function(respText) {
+                theResponse = respText.response;
+            }
+        });
+        return theResponse;
+    }
 });
 
 /**
  * Загрузка меню
  */
 function setMenu() {
-  var controller = window.location.href.split('/');
-  var response = $.xResponse({type: 'menu', 'get_list': true});
+    var controller = window.location.href.split('/');
+    var response = $.xResponse({ type: 'menu', 'get_list': true });
 
-  var select = document.getElementById('block-menu');
-  for (var element of response.controllers) {
-    var opt = document.createElement('li');
-    opt.innerHTML = '<a href="' + element.url + '">' + element.name + '</a>';
-    if (controller[3] == element.url) {
-      opt.className = "active";
+    var select = document.getElementById('block-menu');
+    for (var element of response.controllers) {
+        var opt = document.createElement('li');
+        opt.innerHTML = '<a href="' + element.url + '">' + ((element.icon) ? element.icon : element.name) + '</a>';
+        if (controller[3] == element.url) {
+            opt.className = "active";
+        }
+        select.appendChild(opt);
     }
+    var opt = document.createElement('li');
+    opt.innerHTML = '<a href="/starter?logout">Выйти</a>';
     select.appendChild(opt);
-  }
-  var opt = document.createElement('li');
-  opt.innerHTML = '<a href="/starter?logout">Выйти</a>';
-  select.appendChild(opt);
 };
 
 /**
  * Загрузка списка годов
  */
 function years() {
-  var response = $.xResponse({type: 'year', 'get_list': true});
+    var response = $.xResponse({ type: 'year', 'get_list': true });
 
-  var select = document.getElementById('year-list');
-  for (var element of response.years) {
-    var opt = document.createElement('option');
-    opt.value = element;
-    opt.innerHTML = element;
+    var select = document.getElementById('year-list');
+    for (var element of response.years) {
+        var opt = document.createElement('option');
+        opt.value = element;
+        opt.innerHTML = element;
 
-    select.appendChild(opt);
-  }
+        select.appendChild(opt);
+    }
 };
 
 /**
  * Загрузка списка факультетов
  */
 function facs() {
-  var response = $.xResponse({type: 'fac', 'get_list': true});
-  var select = document.getElementById('fac-list');
+    var response = $.xResponse({ type: 'fac', 'get_list': true });
+    var select = document.getElementById('fac-list');
 
-  for (var element of response) {
-    var opt = document.createElement('option');
-    opt.value = element.ID;
-    opt.innerHTML = element.name;
+    for (var element of response) {
+        var opt = document.createElement('option');
+        opt.value = element.ID;
+        opt.innerHTML = element.name;
 
-    select.appendChild(opt);
-  }
+        select.appendChild(opt);
+    }
 };
 
 /**
  * Загрузка списка новостей
  */
 function news() {
-  var response = $.xResponse({type: 'news', 'get_list': true});
-  var newsList = document.getElementById('news-list');
+    var response = $.xResponse({ type: 'news', 'get_list': true });
+    var newsList = document.getElementById('news-list');
 
-  for (var element of response) {
-    var div = document.createElement('div');
-    div.className = 'callout';
-    div.innerHTML = element.text;
+    for (var element of response) {
+        var div = document.createElement('div');
+        div.className = 'callout';
+        div.innerHTML = element.text;
 
-    newsList.appendChild(div);
-  }
+        newsList.appendChild(div);
+    }
 };
 
 /**
  * Загрузка списка уровний мероприятия
  */
 function event_levels() {
-  var response = $.xResponse({type: 'event_level', 'get_list': true});
+    var response = $.xResponse({ type: 'event_level', 'get_list': true });
 
-  var select = document.getElementById('event-levels-list');
-  for (var element of response) {
-    var opt = document.createElement('option');
-    opt.value = element.ID;
-    opt.innerHTML = element.level;
+    var select = document.getElementById('event-levels-list');
+    for (var element of response) {
+        var opt = document.createElement('option');
+        opt.value = element.ID;
+        opt.innerHTML = element.level;
 
-    select.appendChild(opt);
-  }
+        select.appendChild(opt);
+    }
 };
 
 /**
  * Загрузка списка типов мероприятий
  */
 function event_types() {
-  var response = $.xResponse({type: 'event_type', 'get_list': true});
+    var response = $.xResponse({ type: 'event_type', 'get_list': true });
 
-  var select = document.getElementById('event-types-list');
-  for (var element of response) {
-    var opt = document.createElement('option');
-    opt.value = element.ID;
-    opt.innerHTML = element.type;
+    var select = document.getElementById('event-types-list');
+    for (var element of response) {
+        var opt = document.createElement('option');
+        opt.value = element.ID;
+        opt.innerHTML = element.type;
 
-    select.appendChild(opt);
-  }
+        select.appendChild(opt);
+    }
 };
-function addDivEvent(element) {
-  var div = document.createElement('div');
 
-  div.className = 'col-md-4';
-  div.innerHTML = '<div class="box box-widget widget-user">\
+function addDivEvent(element) {
+    var div = document.createElement('div');
+
+    div.className = 'col-md-4';
+    div.innerHTML = '<div class="box box-widget widget-user">\
       <div class="widget-user-header bg-black">\
         <h5 class="widget-user-username">' +
-      element.name + '</h5>\
+        element.name + '</h5>\
       </div>\
       <div class="box-footer">\
         <div class="row">\
@@ -144,7 +145,7 @@ function addDivEvent(element) {
             <div class="description-block">\
               <a class="btn btn-primary"\
                 href="/events/' +
-      element.ID + '" role="button">Подробнее</a>\
+        element.ID + '" role="button">Подробнее</a>\
             </div>\
           </div>\
           <div class="col-sm-4">\
@@ -157,7 +158,7 @@ function addDivEvent(element) {
       </div>\
   </div>';
 
-  document.getElementById('events').appendChild(div);
+    document.getElementById('events').appendChild(div);
 }
 
 
@@ -165,11 +166,11 @@ function addDivEvent(element) {
  * Загрузка списка мероприятий
  */
 var events = (function() {
-  var response = $.xResponse({type: 'event', year: '2018', 'get_list': true});
+    var response = $.xResponse({ type: 'event', year: '2018', 'get_list': true });
 
-  return function() {
-    for (var element of response) {
-      addDivEvent(element)
+    return function() {
+        for (var element of response) {
+            addDivEvent(element)
+        }
     }
-  }
 })();

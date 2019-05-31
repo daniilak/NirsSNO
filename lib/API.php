@@ -14,6 +14,7 @@ class API
             if (isset($controller->data->menu) && $controller->data->status <= $roleID) {
                 $response["controllers"][] = [
                     "name" => $controller->data->title,
+                    "icon" => (isset($controller->data->icon)) ? $controller->data->icon : "",
                     "url" => $key,
                 ];
             }
