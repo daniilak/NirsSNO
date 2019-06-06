@@ -15,6 +15,7 @@
 class Event
 {
     private $ID;
+    private $idFac;
     private $idType;
     private $idLevel;
     private $year;
@@ -24,6 +25,55 @@ class Event
     private $location;
     private $organization;
     private $isOrder;
+
+    /**
+     * Update the value
+     *
+     * @return  self
+     */
+    public function updateValueDB($val, $type)
+    {
+        $str = '';
+        switch ($type) {
+            case "name":
+                $str = "name";
+                break;
+            case "year":
+                $str = "year";
+                break;
+            case "type":
+                $str = "id_type_event";
+                break;
+            case "level":
+                $str = "id_level_event";
+                break;
+            case "id_fac":
+                $str = "id_fac";
+                break;
+            case "dateStart":
+                $str = "date_start";
+                break;
+            case "dateEnd":
+                $str = "date_end";
+                break;
+            case "location":
+                $str = "location";
+                break;
+            case "organization":
+                $str = "organization";
+                break;
+            case "is_order":
+                $str = "is_order";
+                break;
+        }
+        DataBase::SQL(
+            "UPDATE`events_nirs` SET `" . $str . "` = ? WHERE `ID` = ?",
+            "NO",
+            [$val, $this->ID]
+        );
+
+        return $this;
+    }
 
     /**
      * Get the value of ID
@@ -61,6 +111,26 @@ class Event
     public function setIdType($idType)
     {
         $this->idType = $idType;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idFac
+     */
+    public function getIdFac()
+    {
+        return $this->idFac;
+    }
+
+    /**
+     * Set the value of idFac
+     *
+     * @return  self
+     */
+    public function setIdFac($idFac)
+    {
+        $this->idFac = $idFac;
 
         return $this;
     }

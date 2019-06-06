@@ -86,4 +86,19 @@ class Chair
 
         return $this;
     }
+
+    /**
+     * Update the value of idFac
+     *
+     * @return  self
+     */
+    public function updateIdFac()
+    {
+        DataBase::SQL(
+            "UPDATE `chairs` SET `chair_name` = ? WHERE `ID` = ?",
+            [$this->name, $this->ID]
+        );
+
+        return $this;
+    }
 }

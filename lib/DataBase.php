@@ -48,7 +48,8 @@ class DataBase
         }
 
         $stmt->execute();
-
+        if ($className == "NO") 
+            return;
         return (mb_strlen($className) > 0)
             ? $stmt->fetchAll(PDO::FETCH_CLASS, $className)
             : $stmt->fetchAll(PDO::FETCH_ASSOC);

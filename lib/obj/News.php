@@ -43,4 +43,36 @@ class News
 
         return $this;
     }
+
+    /**
+     * Update the value of text
+     *
+     * @return  self
+     */
+    public function updateText()
+    {
+        DataBase::SQL(
+            "UPDATE`news` SET `text` = ? WHERE `ID` = ?",
+            "NO",
+            [$this->text, $this->ID]
+        );
+
+        return $this;
+    }
+
+    /**
+     * Remove
+     *
+     * @return  self
+     */
+    public function remove()
+    {
+        DataBase::SQL(
+            "DELETE FROM `news` WHERE `ID` = ?",
+            "NO",
+            [$this->ID]
+        );
+
+        return $this;
+    }
 }
